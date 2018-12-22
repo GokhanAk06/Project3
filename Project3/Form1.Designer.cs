@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.chooseFormat = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.weightText = new System.Windows.Forms.TextBox();
+            this.heightText = new System.Windows.Forms.TextBox();
             this.weight = new System.Windows.Forms.Label();
             this.height = new System.Windows.Forms.Label();
             this.okButton = new System.Windows.Forms.Button();
@@ -52,19 +52,19 @@
             this.chooseFormat.Size = new System.Drawing.Size(121, 21);
             this.chooseFormat.TabIndex = 0;
             // 
-            // textBox1
+            // weightText
             // 
-            this.textBox1.Location = new System.Drawing.Point(808, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 1;
+            this.weightText.Location = new System.Drawing.Point(808, 40);
+            this.weightText.Name = "weightText";
+            this.weightText.Size = new System.Drawing.Size(121, 20);
+            this.weightText.TabIndex = 1;
             // 
-            // textBox2
+            // heightText
             // 
-            this.textBox2.Location = new System.Drawing.Point(808, 67);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 2;
+            this.heightText.Location = new System.Drawing.Point(808, 67);
+            this.heightText.Name = "heightText";
+            this.heightText.Size = new System.Drawing.Size(121, 20);
+            this.heightText.TabIndex = 2;
             // 
             // weight
             // 
@@ -134,8 +134,8 @@
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.height);
             this.Controls.Add(this.weight);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.heightText);
+            this.Controls.Add(this.weightText);
             this.Controls.Add(this.chooseFormat);
             this.Name = "Project3";
             this.Text = "Form1";
@@ -149,8 +149,8 @@
         #endregion
 
         private System.Windows.Forms.ComboBox chooseFormat;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox weightText;
+        private System.Windows.Forms.TextBox heightText;
         private System.Windows.Forms.Label weight;
         private System.Windows.Forms.Label height;
         private System.Windows.Forms.Button okButton;

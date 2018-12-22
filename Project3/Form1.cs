@@ -72,19 +72,19 @@ namespace Project3
 
         }
 
-        private Bitmap image;
+
         public void pushPhoto(string picLoc)
         {
-            if(image != null)
-            {
-                image.Dispose();
-            }
+            Bitmap image;
+            //if(image != null)
+            //{
+            //    image.Dispose();
+            //}
+            //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            image = new Bitmap("@"+ "\""+ picLoc+ "\"");
-            pictureBox1.ClientSize = new Size(352, 288);
+            image = new Bitmap(picLoc);
+            pictureBox1.ClientSize = new Size(width, h);
             pictureBox1.Image = (Image)image;
-            //
 
         }
 
@@ -93,15 +93,16 @@ namespace Project3
             Start();
         }
 
-
+        public int width;
+        public int h;
         static double[,] YUV2RGB_CONVERT_MATRIX = new double[3, 3] { { 1, 0, 1.4022 }, { 1, -0.3456, -0.7145 }, { 1, 1.771, 0 } };
 
         public void Start()
         {
 
-            int width = 352;
-            int height = 288;
-            int imgSize = width * height;
+            width = Convert.ToInt32(weightText.Text);
+            h = Convert.ToInt32(heightText.Text);
+            int imgSize = width * h;
             int frameSize = imgSize + (imgSize >> 1);
 
 
@@ -120,14 +121,14 @@ namespace Project3
                         br.Read(yuv, 0, frameSize);
 
                         // 转换为 RGB
-                        ConvertYUV2RGB(yuv, rgb, width, height);
+                        ConvertYUV2RGB(yuv, rgb, width, h);
 
                         // 写 BMP 文件。 @"C:\Users\Gökhan\Source\Repos\Project3\Project3
-                        WriteBMP(rgb, width, height, string.Format(@"C:\Users\Gökhan\Source\Repos\Project3\Project3\yuv2bmp_{0}.bmp", index++));
+                        WriteBMP(rgb, width, h, string.Format(@"C:\Users\Gökhan\Source\Repos\Project3\Project3\yuv2bmp_{0}.bmp", index++));
 
+                        pushPhoto(string.Format(@"C:\Users\Gökhan\Source\Repos\Project3\Project3\yuv2bmp_{0}.bmp", index - 1));
+                        pictureBox1.Refresh();
 
-                        pushPhoto(string.Format(@"C:\Users\Gökhan\Source\Repos\Project3\Project3\yuv2bmp_{0}.bmp", index-1));
-                        
                         //
                         //
 
